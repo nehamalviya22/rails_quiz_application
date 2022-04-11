@@ -1,0 +1,39 @@
+
+
+<%= form_with(model:@question, url: admin_questions_path) do |f| %>
+   <%= f.label :question%>
+   <%= f.text_field :description%>
+
+   <%= f.label :time%>
+   <%= f.number_field :maxtime%>
+
+  <ul>
+    <%= f.fields_for :options do |options_form| %>
+      <li>
+        <%= options_form.label :a %>
+        <%= options_form.text_field :a %>
+
+        <%= options_form.label :b %>
+        <%= options_form.text_field :b %>
+
+        <%= options_form.label :c %>
+        <%= options_form.text_field :c %>
+
+        <%= options_form.label :d %>
+        <%= options_form.text_field :d %>
+        
+      </li>
+    <% end %>
+  </ul>
+
+  <ul>
+    <%= f.fields_for :answers do |answers_form| %>
+      <li>
+        <%= answers_form.label :answer%>
+        <%= answers_form.text_field :correct_answer %> 
+      </li>
+    <% end %>
+  </ul>
+
+  <%= f.submit %>
+<% end %>

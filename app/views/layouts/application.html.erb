@@ -11,6 +11,26 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <header>
+      <h1>Quiz</h1>
+      <nav>
+      <ul class="right">
+            <li>
+              <%= link_to "Sign in", new_session_path, class: "button"%>
+            </li>
+            
+        </ul>
+      </nav>
+    </header>
+
+    <div class = "content">
+      <%= yield %>
+    </div>
+
+    <footer>
+      <p>made by ....</p>
+    </footer>
+
   </body>
 </html>
