@@ -1,0 +1,21 @@
+<%= form_with url:  submit_path(@question) do |f| %>
+
+<%= f.label :question, @question.description %>
+
+<% option_array = []%>
+<%@option.each do|op|%>
+    <% option_array << op.a %>
+    <% option_array << op.b %>
+    <% option_array << op.c %>
+    <% option_array << op.d %>
+<%end%>
+
+<%= f.select :option, option_array %>
+
+<%= f.submit "Next" %>
+<%end%>
+
+<%= content_for  :script do %>
+    <%= javascript_pack_tag 'quizz_timer' %> 
+  
+<%end%>

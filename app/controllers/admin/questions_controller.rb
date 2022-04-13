@@ -9,6 +9,10 @@ class Admin::QuestionsController < ApplicationController
     1.times { @question.answers.build }
   end
 
+  def show
+    @question = Question.find(params[:id])
+  end
+
   def create
     puts(question_params)
     

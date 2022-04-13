@@ -1,0 +1,12 @@
+<section class="event-details">
+  <div class= "details">
+    <h1>Total Score :  <%= @score.obtained %></h1>
+    <h2>Name :  <%= @user.name %><h2>
+    <h2>Email :  <%= @user.email %></h2>
+    <h2>Phone :  <%= @user.contact_number %></h2>
+  </div>
+</section>
+
+<section class="admin">
+    <%= link_to "Exit", root_path, class: "button"%>
+</section>

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
         admin = Admin.find_by(email: params[:email])
         if admin && admin.authenticate(params[:password])
             session[:admin_id] = admin.id
-            redirect_to root_path
+            redirect_to admin_questions_path
         else
             puts "username/password combinations invalid.."
             render :new
@@ -14,5 +14,8 @@ class SessionsController < ApplicationController
     end
 
     def destroy
+        puts "delete ======================"
+        session[:admin_id] = nil
+        redirect_to root_path
     end
 end

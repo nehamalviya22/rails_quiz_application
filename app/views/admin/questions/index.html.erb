@@ -1,3 +1,14 @@
-<%= link_to "Add New Question", new_admin_question_path, class: "button"%>
 
-<%= render @questions%>
+<section class="admin">
+    <%= link_to "Add New Question", new_admin_question_path, class: "button"%>
+</section>
+
+
+<%@questions.each do|question|%>
+<section class="event">
+
+<div class = "summary">
+    <h3><%= question.description %> 
+</div>
+</section>
+<%end %>

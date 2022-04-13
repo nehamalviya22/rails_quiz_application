@@ -16,10 +16,19 @@
       <h1>Quiz</h1>
       <nav>
       <ul class="right">
-            <li>
-              <%= link_to "Sign in", new_session_path, class: "button"%>
-            </li>
-            
+      <% if current_admin %>
+          <li>
+            <%= link_to current_admin.name%>
+          </li>
+          <li>
+            <%= link_to "Sign Out", session_path, method: :delete, class: "button" %>
+          </li>
+      <% else %>
+          <%= yield :sing_in %>
+          <li>
+            <%= link_to "Sign in", new_session_path, class: "button"%>
+          </li>
+      <% end %>
         </ul>
       </nav>
     </header>
@@ -31,6 +40,6 @@
     <footer>
       <p>made by ....</p>
     </footer>
-
+    <%= yield :script %>
   </body>
 </html>

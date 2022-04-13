@@ -7,9 +7,9 @@
    <%= f.label :time%>
    <%= f.number_field :maxtime%>
 
-  <ul>
+  
     <%= f.fields_for :options do |options_form| %>
-      <li>
+      
         <%= options_form.label :a %>
         <%= options_form.text_field :a %>
 
@@ -22,18 +22,16 @@
         <%= options_form.label :d %>
         <%= options_form.text_field :d %>
         
-      </li>
+     
     <% end %>
-  </ul>
-
-  <ul>
+ 
     <%= f.fields_for :answers do |answers_form| %>
-      <li>
+     
         <%= answers_form.label :answer%>
         <%= answers_form.text_field :correct_answer %> 
-      </li>
+      
     <% end %>
-  </ul>
+
 
   <%= f.submit %>
 <% end %>
