@@ -12,24 +12,9 @@
         <%end%>
 
         <%= f.select :option, option_array %>
-
         <%= f.submit "Next" %>
   
 <%end%>
-
-<%#= button_tag 'click',  value: @something, :id=>'something' %>
-
-<%# <script>
-// function my_alrt(s) { 
-//     // debugger
-//    console.log(s);
-//     alert ("My Message")}
-document.getElementById("something").onclick = function() {
-console.log(this.getAttribute("value"));
-}
-
-</script> %>
-
 
 <%= content_for  :script do %>
     <%= javascript_pack_tag 'quizz_timer', :value=> @question.maxtime, :id=>'something' %> 

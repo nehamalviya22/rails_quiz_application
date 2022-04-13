@@ -8,5 +8,5 @@
 </section>
 
 <section class="admin">
-    <%= link_to "Exit", root_path, class: "button"%>
+    <%= link_to "Exit", user_path(@user.id), method: :delete,class: "button"%>
 </section>

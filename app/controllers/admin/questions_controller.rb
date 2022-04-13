@@ -1,4 +1,5 @@
 class Admin::QuestionsController < ApplicationController
+  before_action :require_signin
   def index
     @questions = Question.all
   end

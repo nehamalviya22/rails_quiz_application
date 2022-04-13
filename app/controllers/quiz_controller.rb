@@ -1,4 +1,5 @@
 class QuizController < ApplicationController
+    before_action :require_user_signin , except: [:index]
 
     def index
     end

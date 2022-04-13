@@ -1,5 +1,15 @@
 <%= form_with(model: @user) do |f| %>
-
+  <% if @user.errors.any? %>
+      <section class="errors">
+      <h2> oops! your form couldn't be saved.</h2>
+      <h3> Please correct the following</h3>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+          <li><%=message%></li>
+      <%end%>
+      </ul>
+      </section>
+  <% end %>
   <%= f.label :name %>
   <%= f.text_field :name, autofocus: true %>
 

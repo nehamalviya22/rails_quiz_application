@@ -11,4 +11,16 @@ class ApplicationController < ActionController::Base
     helper_method :current_admin
 
     helper_method :current_user
+
+    def require_signin
+        unless current_admin
+          redirect_to new_session_path, alert: "Please sign in first!"
+        end
+    end
+
+    def require_user_signin
+        unless current_user
+          redirect_to new_user_path, alert: "Please enroll first!"
+        end
+    end
 end

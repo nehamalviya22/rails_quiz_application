@@ -15,6 +15,11 @@ class UsersController < ApplicationController
         end
     end
 
+    def destroy
+        session[:current_user_id] = nil
+        redirect_to root_path, notice: "You are now signed out!"
+    end
+
 private
   def user_params
     params.require(:user).permit(:name, :email, :contact_number)
