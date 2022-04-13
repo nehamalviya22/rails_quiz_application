@@ -1,11 +1,11 @@
-document.getElementById("something").onload = function() {
+document.getElementById("question").onload = function() {
 second = (this.getAttribute("value"));
 
 var sec = second;
 var time = setInterval(myTimer, 1000);
 
 function myTimer() {
-    document.getElementById('timer').innerHTML = sec + " sec left";
+    document.getElementById('timer').innerText = sec + " sec left";
     sec--;
     if (sec == -1) {
         clearInterval(time);

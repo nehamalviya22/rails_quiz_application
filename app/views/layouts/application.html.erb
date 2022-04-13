@@ -13,23 +13,19 @@
   <body>
 
     <header>
-      
       <nav>
-      <%= image_tag("quiz") %>
-      <ul class="right">
-      <% if current_admin %>
-          <li>
-            <%= link_to current_admin.name%>
-          </li>
-          <li>
-            <%= link_to "Sign Out", session_path, method: :delete, class: "button" %>
-          </li>
-      <% else %>
+        <%= image_tag("quiz") %>
+        <ul class="right">
+          <% if current_admin %>
+              <li>
+                <%= link_to current_admin.name%>
+              </li>
+              <li>
+                <%= link_to "Sign Out", session_path, method: :delete, class: "button" %>
+              </li>
+          <% else %>
           <%= yield :sing_in %>
-          <li>
-            <%= link_to "Sign in", new_session_path, class: "button"%>
-          </li>
-      <% end %>
+          <% end %>
         </ul>
       </nav>
     </header>

@@ -1,3 +1,9 @@
+<%= content_for :sing_in do %>
+ <li>
+    <%= link_to "Sign in", new_session_path, class: "button"%>
+  </li>
+<%end%>
+
 <% if flash[:notice] %>
   <div class ="flash notice">
     <%= flash[:notice] %>

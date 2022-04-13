@@ -17,7 +17,7 @@
 <%end%>
 
 <%= content_for  :script do %>
-    <%= javascript_pack_tag 'quizz_timer', :value=> @question.maxtime, :id=>'something' %> 
+    <%= javascript_pack_tag 'quizz_timer', :value=> @question.maxtime, :id=>'question' %> 
 <% end %> 
 
 <section class="admin">
