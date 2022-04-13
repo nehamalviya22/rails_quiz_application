@@ -5,13 +5,19 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.save
-            session[:current_user_id] = @user.id
-            Score.create(user: @user)
-            redirect_to quiz_information_path
-
+        @user_exist=User.find_by(email:@user.email)
+        if  @user_exist
+            session[:current_user_id] = @user_exist.id
+            redirect_to quiz_question_path
         else
-            render :new
+            if @user.save
+                session[:current_user_id] = @user.id
+                Score.create(user: @user)
+                redirect_to quiz_information_path
+
+            else
+                render :new
+            end
         end
     end
 

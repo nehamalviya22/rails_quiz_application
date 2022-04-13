@@ -1,7 +1,9 @@
 class User < ApplicationRecord
 
     validates :name, :email, presence: true
-    validates :email, format: { with: /\S+@\S+/ }, uniqueness: { case_sensitive: false }
+    # validates :email, format: { with: /\S+@\S+/ }, uniqueness: { case_sensitive: false }
+    validates :email, format: { with: /\S+@\S+/ } 
+    
     validates :contact_number , format: { with: /\(?[0-9]{3}\)?[0-9]{3}[0-9]{4}/,
     message: "only allows numbers" }
 
