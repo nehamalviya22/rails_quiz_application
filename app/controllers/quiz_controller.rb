@@ -1,4 +1,5 @@
 class QuizController < ApplicationController
+
     def index
     end
 
@@ -6,6 +7,7 @@ class QuizController < ApplicationController
     end
 
     def show_question
+        @something = "something fshjshfjsh"
         if  Score.find_by(user: current_user).track >= 10
             redirect_to quiz_result_path
         else

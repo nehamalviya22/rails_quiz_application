@@ -3,3 +3,5 @@
 
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
+function my_alrt() { 
+    alert ("My Message")}

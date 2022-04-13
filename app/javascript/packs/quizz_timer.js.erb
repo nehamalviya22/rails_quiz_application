@@ -1,2 +1,16 @@
+document.getElementById("something").onload = function() {
+second = (this.getAttribute("value"));
 
-console.log("<%= j @question %>")
+var sec = second;
+var time = setInterval(myTimer, 1000);
+
+function myTimer() {
+    document.getElementById('timer').innerHTML = sec + " sec left";
+    sec--;
+    if (sec == -1) {
+        clearInterval(time);
+        document.getElementById('my-form').submit(); 
+    }
+}
+
+}

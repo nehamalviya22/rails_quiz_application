@@ -1,21 +1,40 @@
-<%= form_with url:  submit_path(@question) do |f| %>
+<%= form_with :id => 'my-form' ,remote:true, url:  submit_path(@question) do |f| %>
 
-<%= f.label :question, @question.description %>
+    <%= f.label :question, @question.description %>
 
-<% option_array = []%>
-<%@option.each do|op|%>
-    <% option_array << op.a %>
-    <% option_array << op.b %>
-    <% option_array << op.c %>
-    <% option_array << op.d %>
-<%end%>
+    <% option_array = []%>
+    
+        <% @option.each do|op|%>
+            <% option_array << op.a %>
+            <% option_array << op.b %>
+            <% option_array << op.c %>
+            <% option_array << op.d %>
+        <%end%>
 
-<%= f.select :option, option_array %>
+        <%= f.select :option, option_array %>
 
-<%= f.submit "Next" %>
-<%end%>
-
-<%= content_for  :script do %>
-    <%= javascript_pack_tag 'quizz_timer' %> 
+        <%= f.submit "Next" %>
   
 <%end%>
+
+<%#= button_tag 'click',  value: @something, :id=>'something' %>
+
+<%# <script>
+// function my_alrt(s) { 
+//     // debugger
+//    console.log(s);
+//     alert ("My Message")}
+document.getElementById("something").onclick = function() {
+console.log(this.getAttribute("value"));
+}
+
+</script> %>
+
+
+<%= content_for  :script do %>
+    <%= javascript_pack_tag 'quizz_timer', :value=> @question.maxtime, :id=>'something' %> 
+<% end %> 
+
+<section class="admin">
+    <h3>Time : <span id="timer"></span></h3>
+</section>
